@@ -3,6 +3,7 @@
 namespace LZaplata\Comgate;
 
 
+use Nette\Application\Responses\RedirectResponse;
 use Nette\Object;
 use Tracy\Debugger;
 
