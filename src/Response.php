@@ -18,6 +18,9 @@ class Response extends Object
     /** @var Service */
     private $service;
 
+    /** @var string */
+    private $payId;
+
     /**
      * Response constructor.
      * @param $paymentsProtocol
@@ -53,12 +56,16 @@ class Response extends Object
         try {
             $payment = new Payment($this->service);
             $payment->paymentsProtocol->checkTransactionStatus($_POST);
+
+            $this->payId = $payment->paymentsProtocol->getTransactionStatusTransId();
+
             $payment->paymentsDatabase->checkTransaction(
                 $payment->paymentsProtocol->getTransactionStatusTransId(),
                 $payment->paymentsProtocol->getTransactionStatusRefId(),
                 $payment->paymentsProtocol->getTransactionStatusPrice(),
                 $payment->paymentsProtocol->getTransactionStatusCurrency()
             );
+
             $payment->paymentsDatabase->saveTransaction(
                 $payment->paymentsProtocol->getTransactionStatusTransId(),
                 $payment->paymentsProtocol->getTransactionStatusRefId(),
@@ -79,8 +86,6 @@ class Response extends Object
      */
     public function getPayId()
     {
-        $payment = new Payment($this->service);
-
-        return $payment->paymentsProtocol->getTransactionStatusTransId();
+        return $this->payId;
     }
 }
