@@ -46,7 +46,6 @@ Create payment.
 ````php
 $payment = $this->comgate->createPayment(
     $price                  // total price - float
-    $returnUrl
 );
 ````
 
