@@ -145,6 +145,6 @@ class Service extends Object
      */
     public function getReturnResponse()
     {
-        return new Response(null);
+        return new Response(null, $this);
     }
 }

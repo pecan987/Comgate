@@ -51,12 +51,23 @@ class Response extends Object
     {
         try {
             $payment = new Payment($this->service);
-            $status = $payment->paymentsDatabase->getTransactionStatus(
-                $_GET["id"],
-                $_GET["refId"]
+            $payment->paymentsProtocol->checkTransactionStatus($_POST);
+            $payment->paymentsDatabase->checkTransaction(
+                $payment->paymentsProtocol->getTransactionStatusTransId(),
+                $payment->paymentsProtocol->getTransactionStatusRefId(),
+                $payment->paymentsProtocol->getTransactionStatusPrice(),
+                $payment->paymentsProtocol->getTransactionStatusCurrency()
+            );
+            $payment->paymentsDatabase->saveTransaction(
+                $payment->paymentsProtocol->getTransactionStatusTransId(),
+                $payment->paymentsProtocol->getTransactionStatusRefId(),
+                $payment->paymentsProtocol->getTransactionStatusPrice(),
+                $payment->paymentsProtocol->getTransactionStatusCurrency(),
+                $payment->paymentsProtocol->getTransactionStatus(),
+                $payment->paymentsProtocol->getTransactionFee()
             );
 
-            Debugger::dump($status);
+            return true;
         } catch (\Exception $exception) {
             return false;
         }
