@@ -1,0 +1,23 @@
+{
+    "name": "lzaplata/comgate",
+    "description": "Comgate wrapper for Nette Framework.",
+    "keywords": ["nette", "comgate", "gateway"],
+    "homepage": "https://github.com/LZaplata/Comgate",
+    "authors": [
+        {
+            "name": "Lukáš Záplata",
+            "email": "lukas.zaplata@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "nette/di": "~2.3",
+        "nette/application": "~2.3",
+        "nette/utils": "2.3.11",
+        "tracy/tracy": "~2.3",
+        "guzzlehttp/guzzle": "5.3.2"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}
