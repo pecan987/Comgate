@@ -80,6 +80,8 @@ Get response and check if payment was successful
 $response = $this->comgate->getReturnResponse();
 
 if ($response->isOk()) {
+    $payId = $response->getPayId();
+    
     // do something
 }
 ````
