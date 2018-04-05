@@ -73,4 +73,14 @@ class Response extends Object
             return false;
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getPayId()
+    {
+        $payment = new Payment($this->service);
+
+        return $payment->paymentsProtocol->getTransactionStatusTransId();
+    }
 }
