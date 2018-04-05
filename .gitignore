@@ -1,4 +1,5 @@
 .idea/
-.vendor/
+vendor/
+src/data/
 composer.lock
 index.php
