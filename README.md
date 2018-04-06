@@ -85,6 +85,6 @@ if ($response->isOk()) {
     // do something
 }
 
-// output must be clean, so you muset terminate presenter and turn off Tracy
+// output must be clean, so you have to terminate presenter and turn off Tracy
 $this->teminate();
 ````
