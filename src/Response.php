@@ -75,8 +75,12 @@ class Response extends Object
                 $payment->paymentsProtocol->getTransactionFee()
             );
 
+            print "code=0&message=OK";
+
             return true;
         } catch (\Exception $exception) {
+            print "ode=1&message=" . urlencode($exception->getMessage());
+
             return false;
         }
     }
