@@ -84,4 +84,7 @@ if ($response->isOk()) {
     
     // do something
 }
+
+// output must be clean, so you muset terminate presenter and turn off Tracy
+$this->>teminate();
 ````
