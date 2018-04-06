@@ -7,7 +7,7 @@ use Nette\Object;
 
 class Service extends Object
 {
-    /** @var int */
+    /** @var string */
     public $merchant;
 
     /** @var string */
@@ -38,18 +38,18 @@ class Service extends Object
     }
 
     /**
-     * @param int $merchant
+     * @param string $merchant
      * @return self
      */
     public function setMerchant($merchant)
     {
-        $this->merchant = $merchant;
+        $this->merchant = (string)$merchant;
 
         return $this;
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getMerchant()
     {
@@ -62,7 +62,7 @@ class Service extends Object
      */
     public function setSecret($secret)
     {
-        $this->secret = $secret;
+        $this->secret = (string)$secret;
 
         return $this;
     }
