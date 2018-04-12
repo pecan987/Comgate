@@ -28,7 +28,8 @@ Now you can set parameters...
 comgate:
         merchant        : *
         secret          : *
-        sandbox         : true                    
+        sandbox         : true
+        preauth         : false                    
 ````
 
 ...and autowire library to presenter

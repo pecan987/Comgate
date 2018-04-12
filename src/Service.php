@@ -22,19 +22,24 @@ class Service extends Object
     /** @var string */
     public $currency;
 
+    /** @var bool */
+    public $preauth;
+
     /**
      * Service constructor.
      * @param int $merchant
      * @param string $secret
      * @param bool $sandbox
      * @param string $currency
+     * @param bool $preauth
      */
-    public function __construct($merchant, $secret, $sandbox, $currency)
+    public function __construct($merchant, $secret, $sandbox, $currency, $preauth)
     {
         $this->setMerchant($merchant);
         $this->setSecret($secret);
         $this->setSandbox($sandbox);
         $this->setCurrency($currency);
+        $this->setPreauth($preauth);
     }
 
     /**
@@ -125,6 +130,25 @@ class Service extends Object
     public function getCurrency()
     {
         return $this->currency;
+    }
+
+    /**
+     * @param $preauth
+     * @return self
+     */
+    public function setPreauth($preauth)
+    {
+        $this->preauth = $preauth;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getPreauth()
+    {
+        return $this->preauth;
     }
 
     /**

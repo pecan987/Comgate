@@ -70,7 +70,7 @@ class Payment extends Object
             "",                                                 // phone
             "",                                                 // productName
             "",                                                 // language
-            false,                                              // preauth
+            $this->service->getPreauth(),                       // preauth
             false,                                              // reccuring
             null,                                               // reccuringId
             false,                                              // eetReport

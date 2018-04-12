@@ -9,7 +9,8 @@ class Extension extends CompilerExtension
 {
     public $defaults = [
         "sandbox" => true,
-        "currency" => "CZK"
+        "currency" => "CZK",
+        "preauth" => false
     ];
 
     public function loadConfiguration()
@@ -22,7 +23,8 @@ class Extension extends CompilerExtension
                 $config["merchant"],
                 $config["secret"],
                 $config["sandbox"],
-                $config["currency"]
+                $config["currency"],
+                $config["preauth"]
             ]);
     }
 }
