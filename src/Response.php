@@ -79,7 +79,7 @@ class Response extends Object
 
             return true;
         } catch (\Exception $exception) {
-            print "ode=1&message=" . urlencode($exception->getMessage());
+            print "code=1&message=" . urlencode($exception->getMessage());
 
             return false;
         }
