@@ -15,16 +15,16 @@ class Extension extends CompilerExtension
 
     public function loadConfiguration()
     {
-        $config = $this->getConfig($this->defaults);
-        $builder = $this->getContainerBuilder();
+        $this->config += $this->defaults;
 
+        $builder = $this->getContainerBuilder();
         $builder->addDefinition($this->prefix("config"))
             ->setClass("LZaplata\Comgate\Service", [
-                $config["merchant"],
-                $config["secret"],
-                $config["sandbox"],
-                $config["currency"],
-                $config["preauth"]
+                $this->config["merchant"],
+                $this->config["secret"],
+                $this->config["sandbox"],
+                $this->config["currency"],
+                $this->config["preauth"]
             ]);
     }
 }
