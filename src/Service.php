@@ -152,15 +152,19 @@ class Service
         return $this->preauth;
     }
 
-    /**
-     * @param float $price
-     * @return Payment
-     * @throws \Exception
-     */
-    public function createPayment($price, string $refId, $currency = 'CZK')
+	/**
+	 * @param        $price
+	 * @param string $refId
+	 * @param string $currency
+	 * @param string $methods
+	 *
+	 * @return Payment
+	 * @throws \Exception
+	 */
+    public function createPayment($price, string $refId, $currency = 'CZK', string $methods = "ALL")
     {
         $payment = new Payment($this);
-        $payment->createPayment($price, $refId, $currency);
+        $payment->createPayment($price, $refId, $currency, $methods);
 
         return $payment;
     }

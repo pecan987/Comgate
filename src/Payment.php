@@ -54,7 +54,7 @@ class Payment
 	 *
 	 * @throws \Exception
 	 */
-    public function createPayment($price, string $refId, $currency = 'CZK')
+    public function createPayment($price, string $refId, $currency = 'CZK', $methods = "ALL")
     {
     	if(!$refId) {
 		    $this->refId = $this->paymentsDatabase->createNextRefId();
@@ -73,7 +73,7 @@ class Payment
             null,                                               // payerId
             "STANDARD",                                         // vatPL
             "PHYSICAL",                                         // category
-            "ALL",                                              // method
+            $methods,                                              // method
             "",                                                 // account
             "",                                                 // email
             "",                                                 // phone
