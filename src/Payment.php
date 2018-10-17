@@ -47,19 +47,27 @@ class Payment
         );
     }
 
-    /**
-     * @param $price
-     * @throws \Exception
-     */
-    public function createPayment($price)
+	/**
+	 * @param        $price
+	 * @param string $refId
+	 * @param string $currency
+	 *
+	 * @throws \Exception
+	 */
+    public function createPayment($price, string $refId, $currency = 'CZK')
     {
-        $this->refId = $this->paymentsDatabase->createNextRefId();
+    	if(!$refId) {
+		    $this->refId = $this->paymentsDatabase->createNextRefId();
+	    } else {
+    		$this->refId = $refId;
+	    }
+
         $this->price = $price;
 
         $this->paymentsProtocol->createTransaction(
             "CZ",                                               // country
             $price,                                             // price
-            $this->service->getCurrency(),                      // currency
+            $currency ?: $this->service->getCurrency(),                      // currency
             "payment",                                          // description
             $this->refId,                                       // refId
             null,                                               // payerId
