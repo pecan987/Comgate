@@ -2,11 +2,12 @@
 
 namespace LZaplata\Comgate;
 
+use Nette\SmartObject;
 
-use Nette\Object;
-
-class Payment extends Object
+class Payment
 {
+	use SmartObject;
+
     /** @var Service */
     public $service;
 
