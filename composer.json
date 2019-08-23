@@ -1,4 +1,4 @@
-﻿{
+{
     "name": "lzaplata/comgate",
     "description": "Comgate wrapper for Nette Framework.",
     "keywords": ["nette", "comgate", "gateway"],
