@@ -51,10 +51,11 @@ class Payment
 	 * @param        $price
 	 * @param string $refId
 	 * @param string $currency
+     * @param string $country
 	 *
 	 * @throws \Exception
 	 */
-    public function createPayment($price, string $refId, $currency = 'CZK', $methods = "ALL")
+    public function createPayment($price, string $refId, $currency = 'CZK', $methods = "ALL", $country = 'CZ')
     {
     	if(!$refId) {
 		    $this->refId = $this->paymentsDatabase->createNextRefId();
@@ -65,7 +66,7 @@ class Payment
         $this->price = $price;
 
         $this->paymentsProtocol->createTransaction(
-            "CZ",                                               // country
+            $country,                                               // country
             $price,                                             // price
             $currency ?: $this->service->getCurrency(),                      // currency
             "payment",                                          // description

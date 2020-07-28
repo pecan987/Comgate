@@ -157,14 +157,15 @@ class Service
 	 * @param string $refId
 	 * @param string $currency
 	 * @param string $methods
+     * @param string $country
 	 *
 	 * @return Payment
 	 * @throws \Exception
 	 */
-    public function createPayment($price, string $refId, $currency = 'CZK', string $methods = "ALL")
+    public function createPayment($price, string $refId, $currency = 'CZK', string $methods = "ALL", string $country = 'CZ')
     {
         $payment = new Payment($this);
-        $payment->createPayment($price, $refId, $currency, $methods);
+        $payment->createPayment($price, $refId, $currency, $methods, $country);
 
         return $payment;
     }
